@@ -20,3 +20,19 @@ void FillArrayStringsRandom(string[] text, string selectChar,
         }
     }
 }
+
+// 3. Метод печати массива строк через разделитель
+void PrintArrayStrings(string[] text, string separator)
+{
+    int size = text.Length;
+    Console.Write('[');
+    if (size > 0)
+    {
+        for (int i = 0; i < size - 1; i++)
+        {
+            Console.Write('"' + text[i] + '"' + separator);
+        }
+        Console.Write('"' + text[size - 1] + '"' + ']');
+    }
+    else Console.Write(']');
+}
