@@ -49,3 +49,18 @@ int CalculateCountItemsFitLength(string[] text, int maxLengthItem)
     }
     return count;
 }
+
+// 5. Метод заполнения массива подходящими по длине элементами из другого массива
+void CopyItemsFitLength(string[] from, string[] into, int maxLengthItem)
+{
+    int size = from.Length;
+    int correctItem = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (from[i].Length <= maxLengthItem)
+        {
+            into[i - correctItem] = from[i];
+        }
+        else correctItem++;
+    }
+}
