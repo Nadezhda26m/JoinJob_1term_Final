@@ -1,3 +1,4 @@
+#region Методы    
 // 1. Метод создания массива строк заданной длины
 string[] CreateArray(int size)
 {
@@ -50,7 +51,8 @@ int CalculateCountItemsFitLength(string[] text, int maxLengthItem)
     return count;
 }
 
-// 5. Метод заполнения массива подходящими по длине элементами из другого массива
+// 5. Метод заполнения массива подходящими по длине элементами 
+// из другого массива
 void CopyItemsFitLength(string[] from, string[] into, int maxLengthItem)
 {
     int size = from.Length;
@@ -64,5 +66,20 @@ void CopyItemsFitLength(string[] from, string[] into, int maxLengthItem)
         else correctItem++;
     }
 }
+#endregion Методы
+
+Console.Clear();
 
 string chars = "abcdefghigklnopqrstuvwxyzFORNDLQCUM1234567890=)*^#&? >_<";
+
+string[] text = CreateArray(8);
+FillArrayStringsRandom(text, chars, 1, 5);
+PrintArrayStrings(text, ", ");
+
+int maxLengthElement = 3;
+int count = CalculateCountItemsFitLength(text, maxLengthElement);
+Console.WriteLine(count);
+
+string[] shortLines = CreateArray(count);
+CopyItemsFitLength(text, shortLines, maxLengthElement);
+PrintArrayStrings(shortLines, ", ");
