@@ -32,7 +32,20 @@ void PrintArrayStrings(string[] text, string separator)
         {
             Console.Write('"' + text[i] + '"' + separator);
         }
-        Console.Write('"' + text[size - 1] + '"' + ']');
+        Console.WriteLine('"' + text[size - 1] + '"' + ']');
     }
-    else Console.Write(']');
+    else Console.WriteLine(']');
+}
+
+// 4. Метод подсчета количества элементов массива заданной длины
+int CalculateCountItemsFitLength(string[] text, int maxLengthItem)
+{
+    int size = text.Length;
+    int count = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (text[i].Length <= maxLengthItem)
+            count++;
+    }
+    return count;
 }
