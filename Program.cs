@@ -69,17 +69,19 @@ void CopyItemsFitLength(string[] from, string[] into, int maxLengthItem)
 #endregion Методы
 
 Console.Clear();
-
 string chars = "abcdefghigklnopqrstuvwxyzFORNDLQCUM1234567890=)*^#&? >_<";
 
-string[] text = CreateArray(8);
-FillArrayStringsRandom(text, chars, 1, 5);
+int size = 8;
+string[] text = CreateArray(size);
+FillArrayStringsRandom(text, chars, 1, 7);
+Console.WriteLine($"Исходный массив строк из {size} элементов:");
 PrintArrayStrings(text, ", ");
 
 int maxLengthElement = 3;
 int count = CalculateCountItemsFitLength(text, maxLengthElement);
-Console.WriteLine(count);
-
-string[] shortLines = CreateArray(count);
-CopyItemsFitLength(text, shortLines, maxLengthElement);
-PrintArrayStrings(shortLines, ", ");
+string[] shortElements = CreateArray(count);
+if (count > 0) CopyItemsFitLength(text, shortElements, maxLengthElement);
+Console.WriteLine("\nМассив из строк, длина которых меньше или "
+                + $"равна {maxLengthElement} символа:");
+PrintArrayStrings(shortElements, ", ");
+if (count == 0) Console.WriteLine("Подходящие элементы не найдены");
